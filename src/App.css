@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+/*--------------universal------------------------------*/
+
+/*--------------Header------------------------------*/
+.header {
+
+  width: auto;
+  height: 50px;
+  background-color: cornflowerblue;
+}
+.header span {
+  margin-left: 50px;
+  font-size: 18px;
+  line-height: 50px;
+}
+
+/*--------------container------------------------------*/
+.container {
+  display: flex;
+  width: auto;
+  height: 1000px;
+  background-color: #fff;
+  
+}
+.home {
+  
+  /* margin-top: -16px; */
+  width: 200px;
+  height: 1000px;
+  background-color: rgb(200, 200, 245);
+}
+.home div {
+  font-weight: 600;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+.home ul {
+  margin-top: 40px;
+}
+.home ul li{
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+
+
