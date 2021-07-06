@@ -24,7 +24,8 @@ export default function MyDay () {
         //             setComplete(res.data)
         //         }
         //     })
-        axiosInstance.get(`/task/getTasks?isFinished=0&isImportant=1}`,
+
+        axiosInstance.get(`/task/getTodayTask?isFinished=0`,
             {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
             .then((res) => {
                 console.log('start', res)
@@ -32,10 +33,18 @@ export default function MyDay () {
                     setTask(res.data)
                 }
             })
+        axiosInstance.get(`/task/getTodayTask?isFinished=1`,
+            {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
+            .then((res) => {
+                console.log('start', res)
+                if(res.status === 200) {
+                    setComplete(res.data)
+                }
+            })
     }, [trigger])
     return(
         <div>
-            <div className='myDay'>My Day</div>
+            <div className='myDay'>Today</div>
             <AddTask task = {task} setTask={setTask} trigger={trigger} setTrigger={setTrigger} />
             <Form task = {task} setTask={setTask} complete={complete} setComplete={setComplete} setTrigger={setTrigger} trigger={trigger}/>
         </div>
