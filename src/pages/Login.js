@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axiosInstance from "../util/axiosInstance";
 import { useHistory } from "react-router-dom";
+import Register from "./Register";
 export default function Login () {
     let history = useHistory();
     const [email, setEmail] = useState('')
@@ -24,20 +25,56 @@ export default function Login () {
             }
         })
     }
+    const general = {
+        // display: 'flex',
+        margin: '0 auto',
+        marginTop: '200px',
+        // alignItems: 'center',
+        textAlign: 'center',
+        // justifyContent: 'center',
+        width: '500px',
+        height: '350px',
+        backgroundColor: 'rgb(200, 200, 245)',
+        border: '1px solid #ddd',
+        borderRadius: '10px'
+    }
+    const spaceStyle = {
+        marginBottom: '20px',
+        fontSize: '18px',
+        fontWeight: '650'
+    }
+    const inputStyle = {
+        marginLeft: '10px',
+        width: '300px',
+        boder: '1px solid',
+        borderRadius: '6px'  
+    }
+    const buttonStyle = {
+        marginLeft: '30px',
+        marginRight: '50px',
+        marginTop: '17px',
+        borderRadius: "5px",
+        backgroundColor: 'rgb(240 250 250)',
+        fontSize: '16px'
+    }
 
     return(
-        <div>
-            <div>
-                <span>Email </span>
+        <div style= {general}>
+            <h1 style={{marginTop:'28px', marginBottom: '25px'}}>Log in</h1>
+            <div style={spaceStyle}>
+                <span style = {{textAlign: 'right'}}>Email </span>
                 <input value={email} placeholder= 'Please input your email'
-                       onChange={emailHandler}/>
+                    style = {inputStyle}
+                    onChange={emailHandler}/>
             </div>
-            <div>
+            <div style={spaceStyle}>
                 <span>Password </span>
                 <input value={password} type='password' placeholder= 'Please input your password'
-                       onChange={passwordHandler}/>
+                    style = {inputStyle}
+                    onChange={passwordHandler}/>
             </div>
-            <button onClick={signInHandler}>Sign in</button>
+            <button style={buttonStyle} onClick={signInHandler}>Log in</button>
+            <a href='Register'>Register</a>
         </div>
     )
 }

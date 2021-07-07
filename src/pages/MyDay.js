@@ -2,51 +2,26 @@ import React, {useEffect, useState} from "react";
 import AddTask from '../components/AddTask';
 import Form from '../components/Form'
 import axiosInstance from "../util/axiosInstance";
-import './myDay.css'
+import {ClockCircleTwoTone} from '@ant-design/icons';
+import Container from "../components/Container";
 export default function MyDay () {
-    const [task, setTask] = useState([])
-    const [complete, setComplete] = useState([])
-    const [trigger, setTrigger] = useState(true)
-    useEffect(() => {
-        // axiosInstance.get(`/task/getTodayTaskByUid?u_id=${localStorage.getItem('u_id')}`,
-        //     {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
-        //     .then((res) => {
-        //         console.log('start', res)
-        //         if(res.status === 200) {
-        //             setTask(res.data)
-        //         }
-        //     })
-        // axiosInstance.get(`/task/getTasks?isFinished=1}`,
-        //     {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
-        //     .then((res) => {
-        //         console.log('start', res)
-        //         if(res.status === 200) {
-        //             setComplete(res.data)
-        //         }
-        //     })
-
-        axiosInstance.get(`/task/getTodayTask?isFinished=0`,
-            {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
-            .then((res) => {
-                console.log('start', res)
-                if(res.status === 200) {
-                    setTask(res.data)
-                }
-            })
-        axiosInstance.get(`/task/getTodayTask?isFinished=1`,
-            {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
-            .then((res) => {
-                console.log('start', res)
-                if(res.status === 200) {
-                    setComplete(res.data)
-                }
-            })
-    }, [trigger])
+    const titileStyle = {
+        marginLeft: '10px',
+        display: 'flex', 
+        height: '50px', 
+        width: '90px',
+        margin: '20px 30px 10px 30px',
+        fontSize: '22px',
+        fontWeight: '700',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    }
     return(
-        <div>
-            <div className='myDay'>Today</div>
-            <AddTask task = {task} setTask={setTask} trigger={trigger} setTrigger={setTrigger} />
-            <Form task = {task} setTask={setTask} complete={complete} setComplete={setComplete} setTrigger={setTrigger} trigger={trigger}/>
-        </div>
+        <Container>
+            <div style={titileStyle}>
+                <ClockCircleTwoTone style={{marginRight: '10px'}} />
+                <span>Today</span>
+            </div>
+        </Container>
     )
 }

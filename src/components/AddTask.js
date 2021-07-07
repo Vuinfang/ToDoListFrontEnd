@@ -30,6 +30,7 @@ export default function AddTask(props) {
                 u_id: localStorage.getItem('u_id'),
                 name: task,
                 date: today_str,
+                isImportant: props.isImportant,
             }, {headers:{Authorization: `Bearer ${localStorage.getItem("token")}`}})
                 .then((res) => {
                     if (res.status === 201) {
@@ -46,29 +47,40 @@ export default function AddTask(props) {
         }
     }
     const inputStyle = {
+        textAlgn: 'center',
         marginTop: '20px',
-        marginLeft: '30px',
+        marginLeft: '50px',
         marginButtom: '20px',
-        width: '400px',
-        fontSize: '18px'
+        width: '500px',
+        fontSize: '18px',
+        height: '40px'
     }
     const buttonstyle ={
-        marginLeft: '10px',
+        // marginLeft: '10px',
+        marginTop: '20px',
         borderRadius: "0 5px 5px 0",
         backgroundColor: 'cornflowerblue',
-        fontSize: '18px'
+        fontSize: '18px',
+        height: '40px'
         // width: "40px"
     }
+    const content = {
+        justifyContent: 'center',
+        display: 'flex',
+        height: '50px'
+    }
     return(
-        <div>
-            <input value = {task} placeholder = 'Please input your plan' style={inputStyle}
-            onChange={onChangeHandler}
-                   onKeyPress={onEnterHandler}
-            ></input>
+        <div style={content}>
+            <div style={content}>
+                <input value = {task} placeholder = 'Please input your plan' style={inputStyle}
+                onChange={onChangeHandler}
+                    onKeyPress={onEnterHandler}
+                ></input>
+            </div>
             <button
                style={buttonstyle}
                onClick={onClickHandler}
-            >Submit</button>
+            >Add </button>
 
         </div>
     )

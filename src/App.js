@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import AddTask from "./components/AddTask";
 import Form from "./components/Form";
+import clock from "./image/clock.png";
 import {
     BrowserRouter as Router,
     Switch,
@@ -14,61 +15,65 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import './App.css';
 import 'antd/dist/antd.css';
-import {DiffOutlined} from "@ant-design/icons";
+import {HeartTwoTone, CalendarTwoTone, FileExclamationTwoTone, ContainerTwoTone, EditTwoTone, ApiTwoTone} from "@ant-design/icons";
 
 export default function App() {
     const [task, setTask] = useState([])
     const [complete, setComplete] = useState([])
     return(
-        <Router>
+        
             <div className='box'>
                 <header className='header'>
                     <span>To Do</span>
                 </header>
+                <Router>
                 <div className='container'>
-                    <nav className='home'>
-                        <div>V_V</div>
+                    <nav className='nav'>
+                        {/* <div><img src={clock} alt="clock" style={{width:'40%'}}/></div> */}
                         <ul>
-                            <li className='aaa'>
-                                
-                                <Link to='/'>My Day</Link>
+                            <li>
+                                <CalendarTwoTone /> 
+                                <Link to='/' > My Day</Link>
+                            </li >
+                            <li>
+                                <FileExclamationTwoTone />
+                                <Link to ='/important' > Important</Link>
                             </li>
                             <li>
-                                <Link to ='/important'>Important</Link>
+                                <ContainerTwoTone />
+                                <Link to = '/planned'> Planned</Link>
                             </li>
                             <li>
-                                <Link to = '/planned'>Planned</Link>
+                                <EditTwoTone />
+                                <Link to = '/register'> Register</Link>
                             </li>
                             <li>
-                                <Link to = '/register'>Register</Link>
-                            </li>
-                            <li>
-                                <Link to = '/login'>Login</Link>
+                                <ApiTwoTone />
+                                <Link to = '/login'> Login</Link>
                             </li>
                         </ul>
                     </nav>
-
-                
-                
-                <Switch className='content'>
-                    <Route path = '/important'>
-                        <Important />
-                    </Route>
-                    <Route path = '/planned'>
-                        <Planned />
-                    </Route>
-                    <Route path = '/register'>
-                        <Register />
-                    </Route>
-                    <Route path = '/login'>
-                        <Login />
-                    </Route>
-                    <Route exact path = '/'>
-                        <MyDay />
-                    </Route>
-                </Switch>
+                    <div className='component'>
+                        <Switch className='content'>
+                            <Route path = '/important'>
+                                <Important />
+                            </Route>
+                            <Route path = '/planned'>
+                                <Planned />
+                            </Route>
+                            <Route path = '/register'>
+                                <Register />
+                            </Route>
+                            <Route path = '/login'>
+                                <Login />
+                            </Route>
+                            <Route exact path = '/'>
+                                <MyDay />
+                            </Route>
+                        </Switch>
+                    </div>
                 </div>
+                </Router>
             </div>
-        </Router>
     )
 }
