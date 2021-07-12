@@ -62,10 +62,10 @@ export default function Form(props) {
         marginTop: '30px',
         marginLeft: '30px'
     }
-    const titileStyle = {
+    const titleStyle = {
         marginLeft: '10px',
-        display: 'flex', 
-        height: '50px', 
+        display: 'flex',
+        height: '50px',
         width: '90px',
         margin: '20px 30px 10px 30px',
         fontSize: '22px',
@@ -77,7 +77,7 @@ export default function Form(props) {
         alignItems:'center',
        justifyContent:'center'
     }
-    
+
     // console.log(props.complete)
     return(
         <div>
@@ -106,7 +106,7 @@ export default function Form(props) {
                 })}
             </ul>
             {/* <hr/> */}
-            <div  style={titileStyle}><CheckCircleTwoTone style={{marginRight: '10px'}}/><span>Done</span></div>
+            <div  style={titleStyle}><CheckCircleTwoTone style={{marginRight: '10px'}}/><span>Done</span></div>
             <ul>
                 {props.complete.map((e, i) => {
                     return (
@@ -120,7 +120,7 @@ export default function Form(props) {
                                 <button key={i+e+e+i}
                                         onClick={() => deleteHandler(e.t_id)}
                                         style={buttonStyle}
-                                >Delete</button> 
+                                >Delete</button>
                             </div>
                             <hr/>
                         </div>

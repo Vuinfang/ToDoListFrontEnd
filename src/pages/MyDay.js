@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from "react";
-import AddTask from '../components/AddTask';
-import Form from '../components/Form'
-import axiosInstance from "../util/axiosInstance";
+import {getCurrentDate} from "../util/GetCurrentDate";
 import {ClockCircleTwoTone} from '@ant-design/icons';
 import Container from "../components/Container";
 export default function MyDay () {
-    const titileStyle = {
+    const titleStyle = {
         marginLeft: '10px',
-        display: 'flex', 
-        height: '50px', 
+        display: 'flex',
+        height: '50px',
         width: '90px',
         margin: '20px 30px 10px 30px',
         fontSize: '22px',
@@ -16,12 +14,25 @@ export default function MyDay () {
         alignItems: 'center',
         justifyContent: 'space-between',
     }
+    const dateStyle = {
+        marginLeft: '10px',
+        display: 'flex',
+        height: '20px',
+        width: '90px',
+        margin: '0px 0px 0px 40px',
+        fontSize: '13px',
+        fontWeight: '400',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    }
+
     return(
         <Container>
-            <div style={titileStyle}>
+            <div style={titleStyle}>
                 <ClockCircleTwoTone style={{marginRight: '10px'}} />
                 <span>Today</span>
             </div>
+            <div style={dateStyle}>{getCurrentDate()}</div>
         </Container>
     )
 }

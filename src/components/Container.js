@@ -26,8 +26,8 @@ export default function Container(props) {
 
     // const titileStyle = {
     //     marginLeft: '10px',
-    //     display: 'flex', 
-    //     height: '50px', 
+    //     display: 'flex',
+    //     height: '50px',
     //     width: '90px',
     //     margin: '20px 30px 10px 30px',
     //     fontSize: '22px',
@@ -43,19 +43,15 @@ export default function Container(props) {
     }
     return(
         <div className='myDay' style={myDayStyle}>
-            {/* <div style={titileStyle}>
-                <ClockCircleTwoTone style={{marginRight: '10px'}} />
-                <span>Today</span>
-            </div> */}
             {props.children}
             <div style={{width: '720px', margin: '0 auto'}}>
                 <AddTask task={task} isImportant={props.isImportant}
                 setTask={setTask} trigger={trigger} setTrigger={setTrigger}/>
             </div>
             <div>
-                <Form 
-                style={{display: 'flex'}} task={task} setTask={setTask} 
-                complete={complete} setComplete={setComplete} 
+                <Form
+                style={{display: 'flex'}} task={task} setTask={setTask}
+                complete={complete} setComplete={setComplete}
                 setTrigger={setTrigger} trigger={trigger}/>
             </div>
         </div>

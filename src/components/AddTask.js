@@ -47,16 +47,15 @@ export default function AddTask(props) {
         }
     }
     const inputStyle = {
-        textAlgn: 'center',
         marginTop: '20px',
-        marginLeft: '50px',
-        marginButtom: '20px',
+        marginLeft: '20px',
+        paddingLeft: '20px',
+        marginBottom: '20px',
         width: '500px',
         fontSize: '18px',
         height: '40px'
     }
-    const buttonstyle ={
-        // marginLeft: '10px',
+    const buttonStyle ={
         marginTop: '20px',
         borderRadius: "0 5px 5px 0",
         backgroundColor: 'cornflowerblue',
@@ -78,7 +77,7 @@ export default function AddTask(props) {
                 ></input>
             </div>
             <button
-               style={buttonstyle}
+               style={buttonStyle}
                onClick={onClickHandler}
             >Add </button>
 
